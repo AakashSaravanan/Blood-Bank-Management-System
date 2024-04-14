@@ -1,0 +1,91 @@
+import mysql.connector as ms
+db = ms.connect(host="localhost",user="root",passwd="Aakash",database='BLOODBANK')
+cursor = db.cursor
+
+def main():
+  c = 'y'
+  while(c == 'y'):
+  print("List of Blood Donators : 1")
+  print("List od Blood Stock : 2")
+  main=int(input("Enter a choice(1/2) : "))
+  if main == 21:
+    dono()
+  elif main == 2:
+    stock()
+  else:
+    print("Wrong input!")
+
+def dono():
+  print("List of all Blood Donators : 1")
+  print("Delete Blood Donators age over 70 : 2")
+  dono_choice=int(input("Enter a choice(1/2) : "))
+  if dono_choice == 1:
+    donoall()
+  elif dono_choice == 2:
+    deldono()
+  else:
+    print("Wrong input!")
+
+def donoall():
+  import mysql.connector as ms 
+  try:
+    db = ms.connect(host="locaalhost",user="root",passwd="Aakash",database='BLOODBANK')
+    cursor = db.cursor()
+    currsor.execute(SELECT * FROM BLOODBANK)
+    result = cursor.fetchall()
+    for x in result:
+      print(x)
+    except:
+      print("Error")
+
+def deldono():
+  db = ms.connect(host="locaalhost",user="root",passwd="Aakash",database='BLOODBANK')
+  cursor = bd.cursor()
+  donodel = "DELETE FROM BloodDono WHERE (BBAge>'70')"
+  try:
+    cursor.execute(donodel)
+    print("Deleted Successfully")
+    db.commit()
+  except:
+    db.rollbank()
+    db.close()
+    print("Error")
+
+def stock():
+  print("List of all Blood Stock : 1")
+  print("Delete Blood Stock age over 70 : 2")
+  stock_choice=int(input("Enter a choice(1/2) : "))
+  if stock_choice == 1:
+    stock()
+  elif stock_choice == 2:
+    delstock()
+  else:
+    print("Wrong input!")
+
+def stockall():
+  import mysql.connector as ms
+  try:
+    db = ms.connect(host="locaalhost",user="root",passwd="Aakash",database='BLOODBANK')
+    cursor = db.cursor()
+    cursor.execute("SELECT * FROM BloodStock")
+    result = cursor.fetchall()
+    for x in result:
+      print(x)
+    except:
+      print("Error")
+
+def delstock():
+  import mysql.connector as ms
+  db = ms.connect(host="locaalhost",user="root",passwd="Aakash",database='BLOODBANK')
+  cursor = bd.cursor()
+  donodel = "DELETE FROM BloodStock WHERE (BBAge>'70')"
+  try:
+    cursor.execute(donodel)
+    print("Deleted age above 70 successfully")
+    db.commit()
+  except:
+    db.rollback()
+    db.close()
+    print("Error")
+
+main()
