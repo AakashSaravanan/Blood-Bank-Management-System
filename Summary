@@ -1,0 +1,11 @@
+The code is a Python script designed to interact with a MySQL database for managing a blood bank system. It allows users to perform various operations such as listing blood donors,
+listing blood stock, deleting blood donors aged over 70, and deleting blood stock aged over 70.
+
+1. The script establishes a connection to a MySQL database named "BLOODBANK".
+2. It defines functions for different operations such as managing blood donors (dono()), managing blood stock (stock()), listing all blood donors (donoall()), listing all blood stock
+   (stockall()), deleting blood donors aged over 70 (deldono()), and deleting blood stock aged over 70 (delstock()).
+3. The main() function serves as the entry point of the program, displaying options for the user to choose from.
+4. User input is validated to ensure it matches the available choices.
+5. Error handling is implemented using try and except blocks to manage exceptions that may occur during database operations.
+
+Overall, the program aims to provide a simple interface for managing blood bank data stored in a MySQL database.
